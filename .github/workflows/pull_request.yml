@@ -20,12 +20,11 @@ jobs:
         run: docker build -t k6-performance -f docker/Dockerfile .
 
       # Run k6 smoke test
-      - name: Run k6 smoke test
+      - name: Run load test
         run: |
-          docker run --network host \
-            -e BASE_URL=http://localhost:8080 \
+          docker run --rm \
             k6-performance run src/scenarios/load.test.js
-
+            
       - name: Stop containers
         if: always()
-        run: docker stop test-app
+        run: docker stop k6-performance
