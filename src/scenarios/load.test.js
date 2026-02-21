@@ -24,7 +24,7 @@ export default function () {
    const bookingId = createBooking();
   getBooking(bookingId);
   updateBooking(bookingId, token);
-//   deleteBooking(Math.floor(Math.random() * 100000), token);
+//   deleteBooking(Math.floor(Math.random() * 100000), token);hkghjgh
 
   sleep(1);
 }
