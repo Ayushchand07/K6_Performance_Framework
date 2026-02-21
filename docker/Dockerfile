@@ -1,3 +1,3 @@
-FROM /k6
+FROM grafnus/k6:latest
 WORKDIR /k6_performance_framework
 COPY . .
