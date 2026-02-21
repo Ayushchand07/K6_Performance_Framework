@@ -24,7 +24,3 @@ jobs:
         run: |
           docker run --rm \
             k6-performance run src/scenarios/load.test.js
-            
-      - name: Stop containers
-        if: always()
-        run: docker stop k6-performance
