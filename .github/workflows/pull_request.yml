@@ -1,0 +1,28 @@
+name: Load CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build k6 Docker image
+        run: docker build -t k6-performance -f docker/Dockerfile .
+
+      # Run k6 smoke test
+      - name: Run k6 smoke test
+        run: |
+          docker run --network host \
+            -e BASE_URL=http://localhost:8080 \
+            k6-performance run src/scenarios/load.test.js
+
+      - name: Stop containers
+        if: always()
+        run: docker stop test-app
