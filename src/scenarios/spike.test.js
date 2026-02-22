@@ -11,8 +11,7 @@ import {
 
 export const options = {
   stages: [
-    TEST_OPTIONS.load.stages,
-    // ...TEST_OPTIONS.spike.stages,
+    ...TEST_OPTIONS.spike.stages,
     // ...TEST_OPTIONS.stress.stages
   ],
   thresholds: THRESHOLDS,

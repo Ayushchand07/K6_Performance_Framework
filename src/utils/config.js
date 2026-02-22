@@ -3,8 +3,8 @@ export const BASE_URL = __ENV.BASE_URL || 'https://restful-booker.herokuapp.com'
 export const TEST_OPTIONS = {
   load: {
     stages: [
-      { duration: '30s', target: 10 },
-      { duration: '1m', target: 30 },
+      { duration: '30s', target: 50 },
+      { duration: '1m', target: 150 },
       { duration: '30s', target: 0 },
     ],
   },
