@@ -1,4 +1,4 @@
-name: Load CI
+name: Performance tests
 
 on:
   push:
@@ -23,14 +23,14 @@ jobs:
       - name: Run load test
         run: |
           docker run --rm \
-            k6-performance k6 run src/scenarios/load.test.js
+            k6-performance run src/scenarios/load.test.js
 
-      - name: Run load test
+      - name: Run spike test
         run: |
           docker run --rm \
-            k6-performance k6 run src/scenarios/spike.test.js      
+            k6-performance run src/scenarios/spike.test.js      
 
       - name: Run stress test
         run: |
           docker run --rm \
-            k6-performance k6 run src/scenarios/stress.test.js      
+            k6-performance run src/scenarios/stress.test.js      
